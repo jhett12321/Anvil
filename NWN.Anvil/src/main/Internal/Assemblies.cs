@@ -18,7 +18,6 @@ namespace Anvil.Internal
       Native,
       typeof(NLog.Logger).Assembly,
       typeof(LightInject.ServiceContainer).Assembly,
-      typeof(Newtonsoft.Json.JsonConvert).Assembly,
       typeof(Paket.Dependencies).Assembly,
     };
 

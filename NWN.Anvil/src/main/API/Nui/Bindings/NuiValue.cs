@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Anvil.API
 {
@@ -6,10 +6,10 @@ namespace Anvil.API
   /// A readonly NUI property value that cannot be changed at runtime.
   /// </summary>
   /// <typeparam name="T">The type of value being assigned.</typeparam>
-  [JsonConverter(typeof(NuiValueConverter))]
+  [JsonConverter(typeof(NuiValueJsonConverterFactory))]
   public sealed class NuiValue<T> : NuiProperty<T>
   {
-    public NuiValue(T value)
+    public NuiValue(T? value)
     {
       Value = value;
     }

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Anvil.API
 {
@@ -17,16 +17,16 @@ namespace Anvil.API
       Data = data;
     }
 
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public NuiChartType ChartType { get; set; }
 
-    [JsonProperty("color")]
+    [JsonPropertyName("color")]
     public NuiProperty<Color> Color { get; set; }
 
-    [JsonProperty("data")]
+    [JsonPropertyName("data")]
     public NuiProperty<List<float>> Data { get; set; }
 
-    [JsonProperty("legend")]
+    [JsonPropertyName("legend")]
     public NuiProperty<string> Legend { get; set; }
   }
 }

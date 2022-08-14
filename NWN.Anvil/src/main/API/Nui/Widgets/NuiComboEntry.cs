@@ -1,24 +1,25 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Anvil.API
 {
   /// <summary>
   /// A combo/list element for use in <see cref="NuiCombo"/>.
   /// </summary>
-  [JsonConverter(typeof(ObjectToArrayConverter<NuiComboEntry>))]
+  [JsonConverter(typeof(ObjectToArrayJsonConverter<NuiComboEntry>))]
   public sealed class NuiComboEntry
   {
-    [JsonConstructor]
     public NuiComboEntry(string label, int value)
     {
       Label = label;
       Value = value;
     }
 
-    [JsonProperty(Order = 1)]
-    public string Label { get; set; }
+    public NuiComboEntry() {}
 
-    [JsonProperty(Order = 2)]
-    public int Value { get; set; }
+    [JsonPropertyOrder(1)]
+    public string? Label { get; set; }
+
+    [JsonPropertyOrder(2)]
+    public int? Value { get; set; }
   }
 }

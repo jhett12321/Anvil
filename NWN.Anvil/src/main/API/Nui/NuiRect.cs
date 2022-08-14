@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Anvil.API
 {
@@ -13,16 +13,16 @@ namespace Anvil.API
       Height = height;
     }
 
-    [JsonProperty("h")]
+    [JsonPropertyName("h")]
     public float Height { get; }
 
-    [JsonProperty("w")]
+    [JsonPropertyName("w")]
     public float Width { get; }
 
-    [JsonProperty("x")]
+    [JsonPropertyName("x")]
     public float X { get; }
 
-    [JsonProperty("y")]
+    [JsonPropertyName("y")]
     public float Y { get; }
   }
 }

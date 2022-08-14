@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Anvil.API
 {
@@ -11,21 +11,21 @@ namespace Anvil.API
       Rect = rect;
     }
 
-    [JsonProperty("image_aspect")]
+    [JsonPropertyName("image_aspect")]
     public NuiProperty<NuiAspect> Aspect { get; set; } = NuiAspect.Exact;
 
-    [JsonProperty("image_halign")]
+    [JsonPropertyName("image_halign")]
     public NuiProperty<NuiHAlign> HorizontalAlign { get; set; } = NuiHAlign.Left;
 
-    [JsonProperty("rect")]
+    [JsonPropertyName("rect")]
     public NuiProperty<NuiRect> Rect { get; set; }
 
-    [JsonProperty("image")]
+    [JsonPropertyName("image")]
     public NuiProperty<string> ResRef { get; set; }
 
     public override NuiDrawListItemType Type => NuiDrawListItemType.Image;
 
-    [JsonProperty("image_valign")]
+    [JsonPropertyName("image_valign")]
     public NuiProperty<NuiVAlign> VerticalAlign { get; set; } = NuiVAlign.Top;
   }
 }

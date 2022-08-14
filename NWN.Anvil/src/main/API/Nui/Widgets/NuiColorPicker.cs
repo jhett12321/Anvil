@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Anvil.API
 {
@@ -13,7 +13,7 @@ namespace Anvil.API
       Color = color;
     }
 
-    [JsonProperty("value")]
+    [JsonPropertyName("value")]
     public NuiProperty<Color> Color { get; set; }
 
     public override string Type => "color_picker";

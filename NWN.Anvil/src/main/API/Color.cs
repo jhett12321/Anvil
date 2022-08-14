@@ -1,5 +1,5 @@
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using NWN.Native.API;
 
 namespace Anvil.API
@@ -12,41 +12,41 @@ namespace Anvil.API
     /// <summary>
     /// Gets the alpha value of this color as a byte (0-255).
     /// </summary>
-    [JsonProperty("a")]
+    [JsonPropertyName("a")]
     public readonly byte Alpha;
 
     /// <summary>
     /// Gets the blue value of this color as a byte (0-255).
     /// </summary>
-    [JsonProperty("b")]
+    [JsonPropertyName("b")]
     public readonly byte Blue;
 
     /// <summary>
     /// Gets the green value of this color as a byte (0-255).
     /// </summary>
-    [JsonProperty("g")]
+    [JsonPropertyName("g")]
     public readonly byte Green;
 
     /// <summary>
     /// Gets the red value of this color as a byte (0-255).
     /// </summary>
-    [JsonProperty("r")]
+    [JsonPropertyName("r")]
     public readonly byte Red;
 
     /// <summary>
     /// Constructs a new Color from the given rgba values.
     /// </summary>
-    /// <param name="red">The red value.</param>
-    /// <param name="green">The green value.</param>
-    /// <param name="blue">The blue value.</param>
-    /// <param name="alpha">The alpha value.</param>
+    /// <param name="r">The red value.</param>
+    /// <param name="g">The green value.</param>
+    /// <param name="b">The blue value.</param>
+    /// <param name="a">The alpha value.</param>
     [JsonConstructor]
-    public Color(byte red, byte green, byte blue, byte alpha = 255)
+    public Color(byte r, byte g, byte b, byte a = 255)
     {
-      Red = red;
-      Green = green;
-      Blue = blue;
-      Alpha = alpha;
+      Red = r;
+      Green = g;
+      Blue = b;
+      Alpha = a;
     }
 
     /// <summary>

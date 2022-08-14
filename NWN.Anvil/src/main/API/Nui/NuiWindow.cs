@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Anvil.API
 {
@@ -17,64 +17,65 @@ namespace Anvil.API
     /// <summary>
     /// Gets or sets whether the window border should be rendered.
     /// </summary>
-    [JsonProperty("border")]
+    [JsonPropertyName("border")]
     public NuiProperty<bool> Border { get; set; } = true;
 
     /// <summary>
     /// Gets or sets whether this window can be closed.<br/>
     /// You must provide a way to close the window if you set this to false.
     /// </summary>
-    [JsonProperty("closable")]
+    [JsonPropertyName("closable")]
     public NuiProperty<bool> Closable { get; set; } = true;
 
     /// <summary>
     /// Gets or sets whether this window is collapsed.<br/>
     /// Use a static value to force the popup into a collapsed/unfolded state.
     /// </summary>
-    [JsonProperty("collapsed")]
+    [JsonPropertyName("collapsed")]
     public NuiProperty<bool>? Collapsed { get; set; }
 
     /// <summary>
     /// Gets or sets the geometry and bounds of this window.<br/>
     /// Set x and y to -1.0 to center the window.
     /// </summary>
-    [JsonProperty("geometry")]
+    [JsonPropertyName("geometry")]
     public NuiProperty<NuiRect> Geometry { get; set; } = new NuiRect(-1, -1, 0, 0);
 
     /// <summary>
     /// Gets or sets the element ID for this window.
     /// </summary>
-    [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("id")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? Id { get; set; }
 
     /// <summary>
     /// Gets or sets whether this window can be resized.
     /// </summary>
-    [JsonProperty("resizable")]
+    [JsonPropertyName("resizable")]
     public NuiProperty<bool> Resizable { get; set; } = true;
 
     /// <summary>
     /// Gets or sets the root parent layout containing the window content.
     /// </summary>
-    [JsonProperty("root")]
+    [JsonPropertyName("root")]
     public NuiLayout Root { get; set; }
 
     /// <summary>
     /// Gets or sets the title of this window.
     /// </summary>
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public NuiProperty<string> Title { get; set; }
 
     /// <summary>
     /// Gets or sets whether the background should be rendered.
     /// </summary>
-    [JsonProperty("transparent")]
+    [JsonPropertyName("transparent")]
     public NuiProperty<bool> Transparent { get; set; } = false;
 
     /// <summary>
     /// Gets the current serialized version of this window.
     /// </summary>
-    [JsonProperty("version")]
+    [JsonPropertyName("version")]
     public int Version { get; private set; } = 1;
   }
 }

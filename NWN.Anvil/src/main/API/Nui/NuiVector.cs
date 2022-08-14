@@ -1,15 +1,15 @@
 using System;
 using System.Numerics;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Anvil.API
 {
   public readonly struct NuiVector : IEquatable<NuiVector>
   {
-    [JsonProperty("x")]
+    [JsonPropertyName("x")]
     public readonly float X;
 
-    [JsonProperty("y")]
+    [JsonPropertyName("y")]
     public readonly float Y;
 
     [JsonConstructor]

@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Anvil.API
 {
@@ -13,15 +13,15 @@ namespace Anvil.API
       Label = label;
     }
 
-    [JsonProperty("text_halign")]
+    [JsonPropertyName("text_halign")]
     public NuiProperty<NuiHAlign> HorizontalAlign { get; set; } = NuiHAlign.Left;
 
-    [JsonProperty("value")]
+    [JsonPropertyName("value")]
     public NuiProperty<string> Label { get; set; }
 
     public override string Type => "label";
 
-    [JsonProperty("text_valign")]
+    [JsonPropertyName("text_valign")]
     public NuiProperty<NuiVAlign> VerticalAlign { get; set; } = NuiVAlign.Top;
   }
 }

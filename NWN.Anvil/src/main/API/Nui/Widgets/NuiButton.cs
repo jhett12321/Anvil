@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Anvil.API
 {
@@ -13,7 +13,7 @@ namespace Anvil.API
       Label = label;
     }
 
-    [JsonProperty("label")]
+    [JsonPropertyName("label")]
     public NuiProperty<string> Label { get; set; }
 
     public override string Type => "button";

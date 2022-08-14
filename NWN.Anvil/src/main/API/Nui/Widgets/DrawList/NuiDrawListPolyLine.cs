@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Anvil.API
 {
@@ -11,7 +11,7 @@ namespace Anvil.API
       Points = points;
     }
 
-    [JsonProperty("points")]
+    [JsonPropertyName("points")]
     public List<float> Points { get; set; }
 
     public override NuiDrawListItemType Type => NuiDrawListItemType.PolyLine;

@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Anvil.API
 {
@@ -11,19 +11,19 @@ namespace Anvil.API
       LineThickness = lineThickness;
     }
 
-    [JsonProperty("color")]
+    [JsonPropertyName("color")]
     public NuiProperty<Color>? Color { get; set; }
 
-    [JsonProperty("enabled")]
+    [JsonPropertyName("enabled")]
     public NuiProperty<bool> Enabled { get; set; } = true;
 
-    [JsonProperty("fill")]
+    [JsonPropertyName("fill")]
     public NuiProperty<bool>? Fill { get; set; }
 
-    [JsonProperty("line_thickness")]
+    [JsonPropertyName("line_thickness")]
     public NuiProperty<float>? LineThickness { get; set; }
 
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public abstract NuiDrawListItemType Type { get; }
   }
 }

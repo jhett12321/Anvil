@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using NWN.Core;
 
 namespace Anvil.API
@@ -16,7 +16,7 @@ namespace Anvil.API
       Key = key;
     }
 
-    [JsonProperty("bind")]
+    [JsonPropertyName("bind")]
     public string Key { get; init; }
 
     /// <summary>
